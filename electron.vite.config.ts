@@ -9,6 +9,17 @@ export default defineConfig({
     plugins: [externalizeDepsPlugin()]
   },
   renderer: {
+    plugins: [
+      {
+        name: 'strip-crossorigin',
+        transformIndexHtml: {
+          order: 'post',
+          handler(html: string) {
+            return html.replace(/\s+crossorigin(?:="[^"]*")?/g, '')
+          }
+        }
+      }
+    ],
     build: {
       rollupOptions: {
         input: {

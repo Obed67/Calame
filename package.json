@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Annotation d'écran gratuite — dessinez par-dessus n'importe quelle application.",
   "license": "MIT",
-  "author": "Calame",
+  "author": "ObeDev",
   "main": "./out/main/index.js",
   "scripts": {
     "dev": "electron-vite dev",
@@ -21,7 +21,7 @@
   "devDependencies": {
     "@types/node": "^24.10.0",
     "electron": "45.3.1",
-    "electron-builder": "^26.0.12",
+    "electron-builder": "^26.18.0",
     "electron-vite": "^6.0.0",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3",

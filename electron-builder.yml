@@ -1,6 +1,6 @@
-appId: app.calame.desktop
+appId: obedev.calame.desktop
 productName: Calame
-copyright: Copyright © 2026 Calame
+copyright: Copyright © 2026 ObeDev
 directories:
   output: release
   buildResources: build
