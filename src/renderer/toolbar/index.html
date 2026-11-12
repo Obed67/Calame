@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calame</title>
+    <link rel="stylesheet" href="./toolbar.css" />
+  </head>
+  <body>
+    <div class="case">
+      <button class="nib" id="drag" type="button" aria-label="Déplacer la barre" title="Déplacer"></button>
+      <div class="tools" id="tools" role="toolbar" aria-label="Outils"></div>
+      <button class="icon fold" id="fold" type="button" aria-label="Replier" title="Replier"></button>
+      <div class="meta">
+        <div class="swatches" id="swatches" role="list" aria-label="Couleurs"></div>
+        <label class="custom" title="Couleur personnalisée">
+          <input id="custom" type="color" aria-label="Couleur personnalisée" />
+        </label>
+        <span class="rule"></span>
+        <div class="widths" id="widths" role="group" aria-label="Épaisseur"></div>
+        <span class="rule"></span>
+        <div class="actions" id="actions"></div>
+      </div>
+      <button class="drop" id="expand" type="button" aria-label="Déplier la barre" title="Déplier"></button>
+    </div>
+    <script type="module" src="./toolbar.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,244 @@
+@import '@fontsource/outfit/500.css';
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  color: #f4efe6;
+  font-family: Outfit, 'Segoe UI', sans-serif;
+}
+
+button,
+label,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+.case {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr) 34px;
+  grid-template-rows: 36px 36px;
+  gap: 6px 8px;
+  align-items: center;
+  padding: 8px;
+  background: rgba(28, 25, 21, 0.94);
+  border: 1px solid rgba(212, 160, 84, 0.42);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px rgba(28, 25, 21, 0.32);
+}
+
+.nib {
+  grid-row: 1 / span 2;
+  width: 28px;
+  height: 62px;
+  padding: 0;
+  border: 0;
+  border-radius: 10px 10px 14px 14px;
+  background:
+    linear-gradient(180deg, rgba(255, 244, 220, 0.55), transparent 28%),
+    linear-gradient(180deg, #e6c48a 0%, #c48a3d 55%, #8d5e28 100%);
+  box-shadow: inset 0 -8px 0 rgba(28, 25, 21, 0.18);
+  -webkit-app-region: drag;
+  cursor: grab;
+}
+
+.nib::after {
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  margin: 8px auto 0;
+  border-radius: 50%;
+  background: rgba(28, 25, 21, 0.28);
+}
+
+.tools,
+.meta,
+.actions,
+.swatches,
+.widths {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.tools {
+  gap: 2px;
+}
+
+.meta {
+  grid-column: 2 / span 2;
+  gap: 6px;
+}
+
+.fold {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+button.icon,
+.widths button,
+.swatches button {
+  -webkit-app-region: no-drag;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  color: #f4efe6;
+  cursor: pointer;
+}
+
+button.icon svg,
+.swatches svg {
+  width: 18px;
+  height: 18px;
+}
+
+button.icon:hover,
+.widths button:hover,
+.swatches button:hover {
+  background: rgba(244, 239, 230, 0.08);
+}
+
+button.icon[aria-pressed='true'] {
+  background: rgba(212, 160, 84, 0.18);
+  color: #f0d7a4;
+  box-shadow: inset 0 -2px 0 #d4a054;
+}
+
+button.icon:focus-visible,
+.widths button:focus-visible,
+.swatches button:focus-visible,
+.custom:focus-within {
+  outline: 2px solid #d4a054;
+  outline-offset: 1px;
+}
+
+.swatches {
+  gap: 4px;
+}
+
+.swatches button {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(244, 239, 230, 0.28);
+  box-shadow: inset 0 -2px 0 rgba(28, 25, 21, 0.18);
+}
+
+.swatches button[aria-pressed='true'] {
+  outline: 2px solid #d4a054;
+  outline-offset: 2px;
+}
+
+.custom {
+  -webkit-app-region: no-drag;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 2px #1c1915,
+    0 0 0 3px #d4a054;
+}
+
+.custom input {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  margin: -3px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.rule {
+  width: 1px;
+  height: 18px;
+  background: rgba(244, 239, 230, 0.16);
+}
+
+.widths {
+  gap: 2px;
+}
+
+.widths button {
+  width: 28px;
+}
+
+.widths button[aria-pressed='true'] {
+  background: rgba(212, 160, 84, 0.18);
+}
+
+.widths i {
+  display: block;
+  width: 14px;
+  border-radius: 99px;
+  background: currentColor;
+}
+
+.actions {
+  gap: 1px;
+  margin-left: auto;
+}
+
+.actions .clear {
+  color: #f0a090;
+}
+
+.actions .shot {
+  color: #9dcebf;
+}
+
+.drop {
+  display: none;
+}
+
+body[data-collapsed='true'] .case {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 22px;
+}
+
+body[data-collapsed='true'] .nib {
+  width: 16px;
+  height: 36px;
+}
+
+body[data-collapsed='true'] .tools,
+body[data-collapsed='true'] .fold,
+body[data-collapsed='true'] .meta {
+  display: none;
+}
+
+body[data-collapsed='true'] .drop {
+  -webkit-app-region: no-drag;
+  display: block;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  box-shadow:
+    inset 0 -3px 0 rgba(28, 25, 21, 0.2),
+    0 0 0 2px rgba(212, 160, 84, 0.85);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button {
+    transition: none;
+  }
+}

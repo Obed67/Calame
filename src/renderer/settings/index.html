@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Réglages — Calame</title>
+    <link rel="stylesheet" href="./settings.css" />
+  </head>
+  <body>
+    <header>
+      <div>
+        <p class="mark">Calame</p>
+        <h1>Réglages</h1>
+      </div>
+      <button id="close" type="button" aria-label="Fermer">Fermer</button>
+    </header>
+    <main>
+      <section>
+        <h2>Outil au lancement</h2>
+        <label class="field">
+          <span>Outil</span>
+          <select id="tool"></select>
+        </label>
+      </section>
+      <section>
+        <h2>Encre</h2>
+        <label class="field">
+          <span>Encre éphémère <b id="fade-value"></b></span>
+          <input id="fade" type="range" min="2000" max="3000" step="100" />
+        </label>
+        <label class="field">
+          <span>Rayon du projecteur <b id="spot-value"></b></span>
+          <input id="spot" type="range" min="60" max="320" step="10" />
+        </label>
+        <label class="field">
+          <span>Grossissement de la loupe <b id="zoom-value"></b></span>
+          <input id="zoom" type="range" min="1.5" max="4" step="0.5" />
+        </label>
+      </section>
+      <section>
+        <h2>Écran annoté</h2>
+        <label class="field">
+          <span>Écran</span>
+          <select id="display"></select>
+        </label>
+      </section>
+      <section>
+        <h2>Raccourcis</h2>
+        <p class="hint">Cliquez une combinaison, puis appuyez sur les touches. Échap quitte le mode dessin.</p>
+        <ul id="shortcuts"></ul>
+        <p id="error" class="error" hidden></p>
+      </section>
+    </main>
+    <script type="module" src="./settings.ts"></script>
+  </body>
+</html>

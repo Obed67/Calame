@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Calame</title>
+    <link rel="stylesheet" href="./overlay.css" />
+  </head>
+  <body data-mode="mouse" data-tool="pen">
+    <canvas id="ink"></canvas>
+    <canvas id="live"></canvas>
+    <textarea id="writer" hidden rows="2" aria-label="Texte de l'annotation"></textarea>
+    <video id="mirror" muted playsinline></video>
+    <p id="toast" role="status" hidden></p>
+    <script type="module" src="./overlay.ts"></script>
+  </body>
+</html>
