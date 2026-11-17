@@ -31,7 +31,8 @@ const actions = document.querySelector<HTMLDivElement>('#actions')!
 const custom = document.querySelector<HTMLInputElement>('#custom')!
 const fold = document.querySelector<HTMLButtonElement>('#fold')!
 const expand = document.querySelector<HTMLButtonElement>('#expand')!
-const drag = document.querySelector<HTMLButtonElement>('#drag')!
+const drag = document.querySelector<HTMLDivElement>('#drag')!
+const frame = document.querySelector<HTMLDivElement>('.case')!
 
 let palette: string[] = []
 let state: ToolState | null = null
@@ -162,6 +163,42 @@ custom.addEventListener('change', () => {
 fold.addEventListener('click', () => setCollapsed(true))
 expand.addEventListener('click', () => setCollapsed(false))
 drag.addEventListener('dblclick', () => setCollapsed(!collapsed))
+
+let dragPointer: { id: number; originX: number; originY: number; startX: number; startY: number } | null = null
+
+function onChrome(target: EventTarget | null): boolean {
+  return target instanceof Element && Boolean(target.closest('button, input, label, a'))
+}
+
+frame.addEventListener('pointerdown', (event) => {
+  if (event.button !== 0 || onChrome(event.target)) return
+  dragPointer = {
+    id: event.pointerId,
+    originX: window.screenX,
+    originY: window.screenY,
+    startX: event.screenX,
+    startY: event.screenY
+  }
+  frame.setPointerCapture(event.pointerId)
+  frame.classList.add('dragging')
+})
+
+frame.addEventListener('pointermove', (event) => {
+  if (!dragPointer || event.pointerId !== dragPointer.id) return
+  window.annot.moveToolbar(
+    Math.round(dragPointer.originX + event.screenX - dragPointer.startX),
+    Math.round(dragPointer.originY + event.screenY - dragPointer.startY)
+  )
+})
+
+function endDrag(event: PointerEvent): void {
+  if (!dragPointer || event.pointerId !== dragPointer.id) return
+  dragPointer = null
+  frame.classList.remove('dragging')
+}
+
+frame.addEventListener('pointerup', endDrag)
+frame.addEventListener('pointercancel', endDrag)
 
 async function boot(): Promise<void> {
   const bootstrap = await window.annot.getBootstrap()

@@ -309,6 +309,19 @@ function registerIpc(): void {
     settings = { ...settings, toolbarCollapsed: collapsed === true }
     saveSettings(settings)
   })
+  ipcMain.on(IPC.toolbarMove, (_event, payload: { x?: number; y?: number }) => {
+    if (!toolbar || toolbar.isDestroyed() || !payload) return
+    const x = Number(payload.x)
+    const y = Number(payload.y)
+    if (!Number.isFinite(x) || !Number.isFinite(y)) return
+    const { width, height } = toolbar.getBounds()
+    const area = screen.getDisplayNearestPoint({ x, y }).workArea
+    const visible = 48
+    toolbar.setPosition(
+      Math.round(Math.min(Math.max(x, area.x - width + visible), area.x + area.width - visible)),
+      Math.round(Math.min(Math.max(y, area.y), area.y + area.height - visible))
+    )
+  })
   ipcMain.on(IPC.toolbarBounds, (_event, payload: { width?: number; height?: number }) => {
     if (!toolbar || !payload) return
     const width = Number(payload.width)

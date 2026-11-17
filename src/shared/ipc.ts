@@ -20,6 +20,7 @@ export const IPC = {
   visibilitySet: 'overlay:visibility',
   visibilityChanged: 'overlay:visibility-changed',
   toolbarBounds: 'toolbar:bounds',
+  toolbarMove: 'toolbar:move',
   toolbarCollapsed: 'toolbar:collapsed',
   undoRequest: 'canvas:undo-request',
   redoRequest: 'canvas:redo-request',

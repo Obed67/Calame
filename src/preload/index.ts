@@ -45,6 +45,9 @@ const annot = {
   resizeToolbar: (width: number, height: number): void => {
     ipcRenderer.send(IPC.toolbarBounds, { width, height })
   },
+  moveToolbar: (x: number, y: number): void => {
+    ipcRenderer.send(IPC.toolbarMove, { x, y })
+  },
   setCollapsed: (collapsed: boolean): void => {
     ipcRenderer.send(IPC.toolbarCollapsed, collapsed)
   },

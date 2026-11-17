@@ -1,6 +1,10 @@
 appId: obedev.calame.desktop
 productName: Calame
 copyright: Copyright © 2026 ObeDev
+publish:
+  provider: github
+  owner: Obed67
+  repo: Calame
 directories:
   output: release
   buildResources: build

@@ -43,6 +43,7 @@ export interface AnnotBridge {
   onMagnifierFrame: (callback: (bytes: Uint8Array) => void) => () => void
   onVisibility: (callback: (visible: boolean) => void) => () => void
   resizeToolbar: (width: number, height: number) => void
+  moveToolbar: (x: number, y: number) => void
   setCollapsed: (collapsed: boolean) => void
   requestUndo: () => void
   requestRedo: () => void
