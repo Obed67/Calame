@@ -1,14 +1,12 @@
-<!-- TODO: ajouter docs/images/logo.png (environ 120 px de large) -->
+![Logo Calame](docs/images/logo.png)
 
-<h1 align="center">Calame</h1>
-<p align="center">Annotation d’écran gratuite pour dessiner par-dessus n’importe quelle application, pendant une présentation, un cours ou un appel.</p>
-<p align="center">
-  <img src="https://img.shields.io/badge/version-1.0.0-blue" alt="Version 1.0.0">
-  <img src="https://img.shields.io/badge/licence-MIT-green" alt="Licence MIT">
-  <img src="https://img.shields.io/badge/plateforme-Windows-lightgrey" alt="Windows">
-</p>
+# Calame
 
-<!-- TODO: ajouter docs/images/demo-dessin.gif (1200 à 1600 px de large, moins de 10 s et de 5 Mo) -->
+Annotation d’écran gratuite pour dessiner par-dessus n’importe quelle application, pendant une présentation, un cours ou un appel.
+
+![Version 1.0.0](https://img.shields.io/badge/version-1.0.0-blue)![Licence MIT](https://img.shields.io/badge/licence-MIT-green)![Windows](https://img.shields.io/badge/plateforme-Windows-lightgrey)
+
+
 
 Un calque transparent reste au-dessus du bureau. En mode souris, les clics traversent le calque et l’ordinateur reste utilisable. En mode dessin, le stylet, le doigt ou la souris tracent sur l’écran.
 
@@ -126,7 +124,7 @@ Le bouton tableau blanc ou tableau noir couvre l’écran d’un fond plein. Des
 
 ## Captures d’écran
 
-<!-- TODO: déposer les fichiers ci-dessous dans docs/images/ avant de retirer ces lignes -->
+
 
 - `docs/images/barre-outils.png` — la barre dépliée, avec le stylo et la palette
 - `docs/images/tableau-blanc.png` — un schéma sur le tableau blanc
