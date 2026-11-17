@@ -5,6 +5,7 @@ publish:
   provider: github
   owner: Obed67
   repo: Calame
+  releaseType: release
 directories:
   output: release
   buildResources: build
