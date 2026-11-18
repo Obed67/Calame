@@ -6,7 +6,6 @@ publish:
   owner: Obed67
   repo: Calame
   releaseType: release
-  generateReleaseNotes: true
 directories:
   output: release
   buildResources: build
