@@ -29,6 +29,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
       - name: Décrire la release
-        run: gh release edit "v1.0.${{ github.run_number }}" --repo Obed67/Calame --generate-notes
+        shell: bash
+        run: |
+          notes=$(gh api repos/Obed67/Calame/releases/generate-notes -f tag_name="v1.0.${{ github.run_number }}" --jq .body)
+          gh release edit "v1.0.${{ github.run_number }}" --repo Obed67/Calame --notes "$notes"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
