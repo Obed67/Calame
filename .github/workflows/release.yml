@@ -24,16 +24,19 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git tag "v1.0.${{ github.run_number }}"
           git push origin "v1.0.${{ github.run_number }}"
-      - run: npm run dist -- --publish always
+      - run: npm run dist -- --publish never
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CSC_IDENTITY_AUTO_DISCOVERY: false
-      - name: Décrire la release
+      - name: Publier la release
         shell: bash
         run: |
           tag="v1.0.${{ github.run_number }}"
           notes=$(gh api --method POST repos/Obed67/Calame/releases/generate-notes -f tag_name="$tag" --jq .body)
-          id=$(gh api "repos/Obed67/Calame/releases/tags/${tag}" --jq .id)
-          gh api --method PATCH "repos/Obed67/Calame/releases/${id}" --raw-field body="$notes"
+          gh release create "$tag" \
+            "release/Calame-${tag#v}-setup.exe" \
+            "release/Calame-${tag#v}-portable.exe" \
+            --repo Obed67/Calame \
+            --title "$tag" \
+            --notes "$notes"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
